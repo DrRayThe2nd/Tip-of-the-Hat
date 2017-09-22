@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=1]
+[gd_scene load_steps=3 format=1]
 
 [ext_resource path="res://Tile Set.tres" type="TileSet" id=1]
+[ext_resource path="res://Shadows.tres" type="TileSet" id=2]
 
 [node name="Grass Map" type="Node2D"]
 
@@ -24,8 +25,9 @@ tile_data = IntArray( 0, 0, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0
 
 [node name="Layer 1 Shadow" type="TileMap" parent="."]
 
+z/z = 1
 mode = 0
-tile_set = null
+tile_set = ExtResource( 2 )
 cell/size = Vector2( 16, 16 )
 cell/quadrant_size = 16
 cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -38,10 +40,11 @@ collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray(  )
+tile_data = IntArray( 9, 1, 65546, 1, 65550, 1, 131074, 3, 131076, 0, 131082, 1, 131086, 1, 196608, 3, 196609, 3, 196612, 0, 196616, 3, 196617, 3, 196618, 4, 262148, 2, 262149, 3, 262150, 3, 262153, 1, 327690, 1, 393226, 1 )
 
 [node name="Layer 1" type="TileMap" parent="."]
 
+z/z = 3
 mode = 0
 tile_set = ExtResource( 1 )
 cell/size = Vector2( 16, 16 )
@@ -56,12 +59,13 @@ collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray( 0, 8, 8, 2, 13, 4, 14, 7, 15, 11, 65536, 1, 65537, 1, 65538, 1, 65544, 2, 65545, 6, 65549, 4, 131072, 1, 131073, 6, 131077, 3, 131078, 3, 131080, 2, 131081, 2, 131085, 4, 196613, 3, 196614, 3, 196621, 10, 262144, 2, 262152, 3, 262153, 9, 327680, 2, 327681, 2, 327682, 9, 327688, 3, 327689, 6, 327693, 1, 327694, 1, 393216, 2, 393217, 5, 393218, 11, 393223, 3, 393224, 3, 393225, 3, 393229, 1, 393230, 1, 458752, 11, 458753, 11, 458754, 11, 524288, 11, 524289, 11 )
+tile_data = IntArray( 0, 8, 8, 2, 13, 2, 14, 7, 15, 11, 65536, 1, 65537, 1, 65538, 1, 65544, 2, 65545, 6, 65549, 2, 131072, 1, 131073, 6, 131077, 3, 131078, 3, 131080, 2, 131081, 2, 131085, 2, 196613, 3, 196614, 3, 196621, 10, 262144, 2, 262152, 3, 262153, 9, 327680, 2, 327681, 2, 327682, 9, 327688, 3, 327689, 6, 327693, 1, 327694, 1, 393216, 2, 393217, 5, 393218, 11, 393223, 3, 393224, 3, 393225, 3, 393229, 1, 393230, 1, 458752, 11, 458753, 11, 458754, 11, 524288, 11, 524289, 11 )
 
 [node name="Layer 2 Shadow" type="TileMap" parent="."]
 
+z/z = 4
 mode = 0
-tile_set = null
+tile_set = ExtResource( 2 )
 cell/size = Vector2( 16, 16 )
 cell/quadrant_size = 16
 cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -74,10 +78,11 @@ collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray(  )
+tile_data = IntArray( 131077, 0, 196613, 2, 196614, 3 )
 
 [node name="Layer 2" type="TileMap" parent="."]
 
+z/z = 6
 mode = 0
 tile_set = ExtResource( 1 )
 cell/size = Vector2( 16, 16 )
@@ -92,6 +97,6 @@ collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray( 13, 11, 14, 11, 15, 11, 65549, 11, 131078, 3, 131085, 11, 196621, 11, 393218, 11, 393230, 1 )
+tile_data = IntArray( 13, 11, 14, 11, 15, 11, 65549, 11, 131078, 3, 131085, 11, 196621, 11, 393218, 11, 393230, 11 )
 
 
