@@ -14,11 +14,25 @@ path = "res://Scenes/Main Menu.tscn"
 [node name="Background" type="Sprite" parent="." index="0"]
 
 position = Vector2( 120.25, 72 )
-scale = Vector2( 15.0312, 9 )
+scale = Vector2( 9, 9 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Logo" type="Sprite" parent="." index="1"]
+[node name="Background2" type="Sprite" parent="." index="1"]
+
+position = Vector2( -23, 72 )
+scale = Vector2( 9, 9 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Background3" type="Sprite" parent="." index="2"]
+
+position = Vector2( 264, 72 )
+scale = Vector2( 9, 9 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Logo" type="Sprite" parent="." index="3"]
 
 position = Vector2( 120, 72 )
 texture = ExtResource( 3 )

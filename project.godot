@@ -14,6 +14,10 @@ config/name="Tip of the Hat"
 run/main_scene="res://Scenes/Loading.tscn"
 config/icon="res://Assets/Large Title.png"
 
+[autoload]
+
+AL="*res://Scripts/Auto Load.gd"
+
 [display]
 
 window/size/width=240
