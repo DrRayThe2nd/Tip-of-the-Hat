@@ -3,16 +3,17 @@
 [ext_resource path="res://Scripts/Character.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Joe.png" type="Texture" id=2]
 
-[node name="Character" type="Node2D" index="0"]
+[node name="Character" type="Node2D"]
 
-position = Vector2( 8, 8 )
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
 test = true
 sprite_name = "Joe"
+can_jump = false
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
+position = Vector2( 8, 8 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 

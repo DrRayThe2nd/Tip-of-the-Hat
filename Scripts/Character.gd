@@ -6,18 +6,25 @@ var check = false
 export(bool) var test = true
 export(String) var sprite_name = "Joe"
 var sprite_path = ""
+export(bool) var can_jump = false
 
-func _ready():
+func set_sprite():
 	sprite_path = "res://Assets/" + sprite_name + ".png"
 	get_node("Sprite").texture = load(sprite_path)
+	if sprite_name in AL.JUMPERS:
+		can_jump = true
+
+func _ready():
+	set_sprite()
 	
 	set_process(true)
 
 func _process(delta):
-	pass
+	if $"Sprite".texture.get_width() == 32:
+		$"Sprite".scale = Vector2(0.5, 0.5)
 
 func check_pos(pos):
-	if pos.x < 0 or pos.x > AL.FAR_CORNER.x or pos.y < 0 or pos.y > AL.FAR_CORNER.y:
+	if pos.x < 0 or pos.x > AL.FAR_CORNER.x - 8 or pos.y < 0 or pos.y > AL.FAR_CORNER.y - 8:
 		return false
 	
 	if not test:
@@ -26,7 +33,7 @@ func check_pos(pos):
 				return false
 	
 		for child in get_parent().get_parent().get_node("Map").get_children():
-			if pos == child.position and child.jump:
+			if pos == child.position and (child.jump and not can_jump):
 				return false
 	
 	return true
