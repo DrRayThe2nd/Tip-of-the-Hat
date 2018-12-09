@@ -9,7 +9,7 @@ func lar(path):
 func _ready():
 	var timer = Timer.new()
 	timer.connect("timeout",self,"_on_timer_timeout")
-	timer.set_wait_time(2)
+	timer.set_wait_time(1)
 	add_child(timer)
 	timer.start()
 
