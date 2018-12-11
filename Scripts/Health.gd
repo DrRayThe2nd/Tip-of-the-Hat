@@ -14,10 +14,12 @@ const four_plus = preload("res://Assets/Four Plus.png")
 var plr
 
 func _ready():
-	if $"..".name.ends_with("A"):
+	if $"..".name.ends_with("A") and $"../../..".players == 2:
 		plr = get_parent().get_parent().get_parent().get_node("Characters/Character A")
-	else:
+	elif $"..".name.ends_with("B") and $"../../..".players == 2:
 		plr = get_parent().get_parent().get_parent().get_node("Characters/Character B")
+	else:
+		plr = get_parent().get_parent().get_parent().get_node("Characters/Character A")
 	
 	set_process(true)
 

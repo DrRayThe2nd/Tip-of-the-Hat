@@ -2,11 +2,23 @@ extends Node2D
 
 const win_a = preload("res://Assets/Winner A.png")
 const win_b = preload("res://Assets/Winner B.png")
+const win_c = preload("res://Assets/Winner C.png")
+const win_d = preload("res://Assets/Winner D.png")
 
 var add
+var pos
+var obstacles = []
+var players = 2
+var ca
+var cb
+var cc
+var cd
+var plrs
 
 onready var p1 = $"Characters/Character A"
 onready var p2 = $"Characters/Character B"
+var p3
+var p4
 onready var winner = $Controls/Winner
 onready var game_over = $"Controls/Game Over"
 onready var c1 = $Map/Crate
@@ -17,47 +29,87 @@ func update_characters(ca, cb):
 	p1.sprite_name = ca
 	p2.sprite_name = cb
 	
+	if players == 4:
+		p3.sprite_name = cc
+		p4.sprite_name = cd
+	
 	p1.set_sprite()
 	p2.set_sprite()
 	
-	if p1.sprite_name.ends_with("Sheep"):
-		p1.health += 1
-	if p2.sprite_name.ends_with("Sheep"):
-		p2.health += 1
+	if players == 4:
+		p3.set_sprite()
+		p4.set_sprite()
 	
-	for p in [p1, p2]:
-		if p.sprite_name in ["Joe", "Zombie", "Black Widow", "Brown Recluse"]:
-			p.damage = 2
+	
+	for p in plrs:
+		if p.sprite_name in AL.HEALTH:
+			p.health += 1
+	
+	for p in plrs:
+		if p.sprite_name in AL.ATTACKERS:
+			p.damage += 1
 	
 	p1.turn = true
 
 func _ready():
-	for c in [c1, c2, c3]:
-		randomize()
-		c.position = Vector2((randi() % (240 / 16)) * 16, randi() % ((144 - 48) / 16) * 16)
+	plrs = [p1, p2]
+	if name.begins_with("Four"):
+		p3 = $"Characters/Character C"
+		p4 = $"Characters/Character D"
+		plrs.append(p3)
+		plrs.append(p4)
+	
+	if name.begins_with("Four"):
+		players = 4
+		AL.FAR_CORNER = Vector2(AL.FAR_CORNER.x * 2, AL.FAR_CORNER.y * 2)
+		for p in plrs:
+			p.players = 4
+			p._ready()
+	
+	for child in $Map.get_children():
+		if child.name.begins_with("Obs"):
+			obstacles.append(child)
+	
+	randomize()
+	
+	for c in $Map.get_children():
+		pos = Vector2((randi() % int(AL.FAR_CORNER.x / 16)) * 16, randi() % int(AL.FAR_CORNER.y / 16) * 16)
+		c.position = pos
+	
+	for o in obstacles:
+		o.sprite_name = AL.choose(["Snow", "Dirt", "Sand"])
+		o.set_sprite()
 	
 	p1.turn = true
 	
 	set_process(true)
 
 func _process(delta):
-	if p1.health <= 0 or p2.health <= 0:
-		print("-==========-")
-		print(" Game over! ")
-		print("-==========-")
-		set_process(false)
-		
-		for child in $Controls.get_children():
-			child.hide()
-		
-		if p1.health <= 0:
-			winner.texture = win_b
-		else:
-			winner.texture = win_a
-		
-		winner.show()
-		game_over.show()
-		game_over.disabled = false
+	for p in plrs:
+		if p.health <= 0:
+			plrs.erase(p)
+			p.queue_free()
+			if len(plrs) == 1:
+				print("-==========-")
+				print(" Game over! ")
+				print("-==========-")
+				set_process(false)
+				
+				for child in $Controls.get_children():
+					child.hide()
+				
+				if plrs[0] == p1:
+					winner.texture = win_a
+				elif plrs[0] == p2:
+					winner.texture = win_b
+				elif plrs[0] == p3:
+					winner.texture = win_c
+				else:
+					winner.texture = win_d
+				
+				winner.show()
+				game_over.show()
+				game_over.disabled = false
 
 func end_game():
 	get_parent().add_child(load("res://Scenes/Main Menu.tscn").instance())

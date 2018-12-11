@@ -1,0 +1,538 @@
+[gd_scene load_steps=22 format=2]
+
+[ext_resource path="res://Scripts/Game.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Crate.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Item.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Character.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/Camera.gd" type="Script" id=5]
+[ext_resource path="res://Assets/Up.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Up Pressed.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Down.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Down Pressed.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Left.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Left Pressed.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Right.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Right Pressed.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Three.png" type="Texture" id=14]
+[ext_resource path="res://Scripts/Health.gd" type="Script" id=15]
+[ext_resource path="res://Assets/Attack.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Attack Pressed.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Blank.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Game Over.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Game Over Pressed.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Winner A.png" type="Texture" id=21]
+
+[node name="Four Player Game" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+
+[node name="Map" type="Node2D" parent="." index="0"]
+
+editor/display_folded = true
+_sections_unfolded = [ "Transform" ]
+
+[node name="Crate" parent="Map" index="0" instance=ExtResource( 2 )]
+
+position = Vector2( 160, 64 )
+_sections_unfolded = [ "Transform" ]
+type = "Random"
+
+[node name="Crate6" parent="Map" index="1" instance=ExtResource( 2 )]
+
+position = Vector2( 160, 64 )
+_sections_unfolded = [ "Transform" ]
+type = "Random"
+
+[node name="Crate8" parent="Map" index="2" instance=ExtResource( 2 )]
+
+position = Vector2( 160, 64 )
+_sections_unfolded = [ "Transform" ]
+type = "Random"
+
+[node name="Crate10" parent="Map" index="3" instance=ExtResource( 2 )]
+
+position = Vector2( 160, 64 )
+_sections_unfolded = [ "Transform" ]
+type = "Random"
+
+[node name="Crate2" parent="Map" index="4" instance=ExtResource( 2 )]
+
+position = Vector2( 64, 32 )
+_sections_unfolded = [ "Transform" ]
+type = "Random"
+
+[node name="Crate5" parent="Map" index="5" instance=ExtResource( 2 )]
+
+position = Vector2( 64, 32 )
+_sections_unfolded = [ "Transform" ]
+type = "Random"
+
+[node name="Crate7" parent="Map" index="6" instance=ExtResource( 2 )]
+
+position = Vector2( 64, 32 )
+_sections_unfolded = [ "Transform" ]
+type = "Random"
+
+[node name="Crate11" parent="Map" index="7" instance=ExtResource( 2 )]
+
+position = Vector2( 64, 32 )
+_sections_unfolded = [ "Transform" ]
+type = "Random"
+
+[node name="Crate3" parent="Map" index="8" instance=ExtResource( 2 )]
+
+position = Vector2( 139, 16 )
+_sections_unfolded = [ "Transform" ]
+type = "Random"
+
+[node name="Crate4" parent="Map" index="9" instance=ExtResource( 2 )]
+
+position = Vector2( 139, 16 )
+_sections_unfolded = [ "Transform" ]
+type = "Random"
+
+[node name="Crate9" parent="Map" index="10" instance=ExtResource( 2 )]
+
+position = Vector2( 139, 16 )
+_sections_unfolded = [ "Transform" ]
+type = "Random"
+
+[node name="Crate12" parent="Map" index="11" instance=ExtResource( 2 )]
+
+position = Vector2( 139, 16 )
+_sections_unfolded = [ "Transform" ]
+type = "Random"
+
+[node name="Obstacle" parent="Map" index="12" instance=ExtResource( 3 )]
+
+[node name="Obstacle22" parent="Map" index="13" instance=ExtResource( 3 )]
+
+[node name="Obstacle51" parent="Map" index="14" instance=ExtResource( 3 )]
+
+[node name="Obstacle69" parent="Map" index="15" instance=ExtResource( 3 )]
+
+[node name="Obstacle13" parent="Map" index="16" instance=ExtResource( 3 )]
+
+[node name="Obstacle21" parent="Map" index="17" instance=ExtResource( 3 )]
+
+[node name="Obstacle42" parent="Map" index="18" instance=ExtResource( 3 )]
+
+[node name="Obstacle72" parent="Map" index="19" instance=ExtResource( 3 )]
+
+[node name="Obstacle2" parent="Map" index="20" instance=ExtResource( 3 )]
+
+[node name="Obstacle25" parent="Map" index="21" instance=ExtResource( 3 )]
+
+[node name="Obstacle53" parent="Map" index="22" instance=ExtResource( 3 )]
+
+[node name="Obstacle73" parent="Map" index="23" instance=ExtResource( 3 )]
+
+[node name="Obstacle19" parent="Map" index="24" instance=ExtResource( 3 )]
+
+[node name="Obstacle36" parent="Map" index="25" instance=ExtResource( 3 )]
+
+[node name="Obstacle56" parent="Map" index="26" instance=ExtResource( 3 )]
+
+[node name="Obstacle76" parent="Map" index="27" instance=ExtResource( 3 )]
+
+[node name="Obstacle3" parent="Map" index="28" instance=ExtResource( 3 )]
+
+[node name="Obstacle28" parent="Map" index="29" instance=ExtResource( 3 )]
+
+[node name="Obstacle45" parent="Map" index="30" instance=ExtResource( 3 )]
+
+[node name="Obstacle61" parent="Map" index="31" instance=ExtResource( 3 )]
+
+[node name="Obstacle16" parent="Map" index="32" instance=ExtResource( 3 )]
+
+[node name="Obstacle26" parent="Map" index="33" instance=ExtResource( 3 )]
+
+[node name="Obstacle43" parent="Map" index="34" instance=ExtResource( 3 )]
+
+[node name="Obstacle63" parent="Map" index="35" instance=ExtResource( 3 )]
+
+[node name="Obstacle4" parent="Map" index="36" instance=ExtResource( 3 )]
+
+[node name="Obstacle24" parent="Map" index="37" instance=ExtResource( 3 )]
+
+[node name="Obstacle41" parent="Map" index="38" instance=ExtResource( 3 )]
+
+[node name="Obstacle71" parent="Map" index="39" instance=ExtResource( 3 )]
+
+[node name="Obstacle14" parent="Map" index="40" instance=ExtResource( 3 )]
+
+[node name="Obstacle31" parent="Map" index="41" instance=ExtResource( 3 )]
+
+[node name="Obstacle48" parent="Map" index="42" instance=ExtResource( 3 )]
+
+[node name="Obstacle66" parent="Map" index="43" instance=ExtResource( 3 )]
+
+[node name="Obstacle5" parent="Map" index="44" instance=ExtResource( 3 )]
+
+[node name="Obstacle32" parent="Map" index="45" instance=ExtResource( 3 )]
+
+[node name="Obstacle49" parent="Map" index="46" instance=ExtResource( 3 )]
+
+[node name="Obstacle67" parent="Map" index="47" instance=ExtResource( 3 )]
+
+[node name="Obstacle18" parent="Map" index="48" instance=ExtResource( 3 )]
+
+[node name="Obstacle40" parent="Map" index="49" instance=ExtResource( 3 )]
+
+[node name="Obstacle60" parent="Map" index="50" instance=ExtResource( 3 )]
+
+[node name="Obstacle80" parent="Map" index="51" instance=ExtResource( 3 )]
+
+[node name="Obstacle6" parent="Map" index="52" instance=ExtResource( 3 )]
+
+[node name="Obstacle35" parent="Map" index="53" instance=ExtResource( 3 )]
+
+[node name="Obstacle55" parent="Map" index="54" instance=ExtResource( 3 )]
+
+[node name="Obstacle75" parent="Map" index="55" instance=ExtResource( 3 )]
+
+[node name="Obstacle11" parent="Map" index="56" instance=ExtResource( 3 )]
+
+[node name="Obstacle34" parent="Map" index="57" instance=ExtResource( 3 )]
+
+[node name="Obstacle54" parent="Map" index="58" instance=ExtResource( 3 )]
+
+[node name="Obstacle74" parent="Map" index="59" instance=ExtResource( 3 )]
+
+[node name="Obstacle7" parent="Map" index="60" instance=ExtResource( 3 )]
+
+[node name="Obstacle37" parent="Map" index="61" instance=ExtResource( 3 )]
+
+[node name="Obstacle57" parent="Map" index="62" instance=ExtResource( 3 )]
+
+[node name="Obstacle77" parent="Map" index="63" instance=ExtResource( 3 )]
+
+[node name="Obstacle15" parent="Map" index="64" instance=ExtResource( 3 )]
+
+[node name="Obstacle23" parent="Map" index="65" instance=ExtResource( 3 )]
+
+[node name="Obstacle52" parent="Map" index="66" instance=ExtResource( 3 )]
+
+[node name="Obstacle70" parent="Map" index="67" instance=ExtResource( 3 )]
+
+[node name="Obstacle8" parent="Map" index="68" instance=ExtResource( 3 )]
+
+[node name="Obstacle27" parent="Map" index="69" instance=ExtResource( 3 )]
+
+[node name="Obstacle44" parent="Map" index="70" instance=ExtResource( 3 )]
+
+[node name="Obstacle62" parent="Map" index="71" instance=ExtResource( 3 )]
+
+[node name="Obstacle17" parent="Map" index="72" instance=ExtResource( 3 )]
+
+[node name="Obstacle33" parent="Map" index="73" instance=ExtResource( 3 )]
+
+[node name="Obstacle50" parent="Map" index="74" instance=ExtResource( 3 )]
+
+[node name="Obstacle68" parent="Map" index="75" instance=ExtResource( 3 )]
+
+[node name="Obstacle9" parent="Map" index="76" instance=ExtResource( 3 )]
+
+[node name="Obstacle39" parent="Map" index="77" instance=ExtResource( 3 )]
+
+[node name="Obstacle59" parent="Map" index="78" instance=ExtResource( 3 )]
+
+[node name="Obstacle79" parent="Map" index="79" instance=ExtResource( 3 )]
+
+[node name="Obstacle12" parent="Map" index="80" instance=ExtResource( 3 )]
+
+[node name="Obstacle30" parent="Map" index="81" instance=ExtResource( 3 )]
+
+[node name="Obstacle47" parent="Map" index="82" instance=ExtResource( 3 )]
+
+[node name="Obstacle65" parent="Map" index="83" instance=ExtResource( 3 )]
+
+[node name="Obstacle10" parent="Map" index="84" instance=ExtResource( 3 )]
+
+[node name="Obstacle38" parent="Map" index="85" instance=ExtResource( 3 )]
+
+[node name="Obstacle58" parent="Map" index="86" instance=ExtResource( 3 )]
+
+[node name="Obstacle78" parent="Map" index="87" instance=ExtResource( 3 )]
+
+[node name="Obstacle20" parent="Map" index="88" instance=ExtResource( 3 )]
+
+[node name="Obstacle29" parent="Map" index="89" instance=ExtResource( 3 )]
+
+[node name="Obstacle46" parent="Map" index="90" instance=ExtResource( 3 )]
+
+[node name="Obstacle64" parent="Map" index="91" instance=ExtResource( 3 )]
+
+[node name="Characters" type="Node2D" parent="." index="1"]
+
+[node name="Character A" parent="Characters" index="0" instance=ExtResource( 4 )]
+
+test = false
+sprite_name = "Random"
+
+[node name="Character B" parent="Characters" index="1" instance=ExtResource( 4 )]
+
+position = Vector2( 464, 0 )
+test = false
+sprite_name = "Random"
+
+[node name="Character C" parent="Characters" index="2" instance=ExtResource( 4 )]
+
+position = Vector2( 0, 192 )
+test = false
+sprite_name = "Random"
+
+[node name="Character D" parent="Characters" index="3" instance=ExtResource( 4 )]
+
+position = Vector2( 464, 192 )
+test = false
+sprite_name = "Random"
+
+[node name="Controls" type="Camera2D" parent="." index="2"]
+
+anchor_mode = 0
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit_left = -10000
+limit_top = -10000
+limit_right = 10000
+limit_bottom = 10000
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = false
+smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+script = ExtResource( 5 )
+_sections_unfolded = [ "Limit" ]
+
+[node name="Background" type="ColorRect" parent="Controls" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = -16.0
+margin_top = 96.0
+margin_right = 256.0
+margin_bottom = 160.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+color = Color( 0, 0, 0, 1 )
+_sections_unfolded = [ "Rect" ]
+
+[node name="All Controls" type="Control" parent="Controls" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 88.0
+margin_top = -8.0
+margin_right = 128.0
+margin_bottom = 32.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Up" type="TextureButton" parent="Controls/All Controls" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 16.0
+margin_top = 112.0
+margin_right = 32.0
+margin_bottom = 128.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 7 )
+texture_disabled = ExtResource( 7 )
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="Down" type="TextureButton" parent="Controls/All Controls" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 16.0
+margin_top = 128.0
+margin_right = 32.0
+margin_bottom = 144.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 9 )
+texture_hover = ExtResource( 9 )
+texture_disabled = ExtResource( 9 )
+_sections_unfolded = [ "Anchor", "Rect", "Textures" ]
+
+[node name="Left" type="TextureButton" parent="Controls/All Controls" index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 128.0
+margin_right = 16.0
+margin_bottom = 144.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 11 )
+texture_disabled = ExtResource( 11 )
+_sections_unfolded = [ "Anchor", "Rect", "Textures" ]
+
+[node name="Right" type="TextureButton" parent="Controls/All Controls" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 32.0
+margin_top = 128.0
+margin_right = 48.0
+margin_bottom = 144.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 13 )
+texture_hover = ExtResource( 13 )
+texture_disabled = ExtResource( 13 )
+_sections_unfolded = [ "Anchor", "Rect", "Textures" ]
+
+[node name="Health" type="Sprite" parent="Controls/All Controls" index="4"]
+
+position = Vector2( 8, 120 )
+texture = ExtResource( 14 )
+script = ExtResource( 15 )
+
+[node name="Attack" type="TextureButton" parent="Controls/All Controls" index="5"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 32.0
+margin_top = 112.0
+margin_right = 64.0
+margin_bottom = 128.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 16 )
+texture_pressed = ExtResource( 17 )
+texture_hover = ExtResource( 17 )
+texture_disabled = ExtResource( 17 )
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="Powerup" type="Sprite" parent="Controls/All Controls" index="6"]
+
+position = Vector2( 56, 136 )
+texture = ExtResource( 18 )
+
+[node name="Game Over" type="TextureButton" parent="Controls" index="2"]
+
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 104.0
+margin_top = 120.0
+margin_right = 136.0
+margin_bottom = 136.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+disabled = true
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 19 )
+texture_pressed = ExtResource( 20 )
+texture_hover = ExtResource( 20 )
+texture_disabled = ExtResource( 20 )
+_sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="Winner" type="Sprite" parent="Controls" index="3"]
+
+visible = false
+position = Vector2( 120, 72 )
+texture = ExtResource( 21 )
+_sections_unfolded = [ "Transform" ]
+
+[connection signal="pressed" from="Controls/Game Over" to="." method="end_game"]
+
+

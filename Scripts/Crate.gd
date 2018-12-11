@@ -1,7 +1,7 @@
 extends Node2D
 
 const is_powerup = true
-const jump = false
+const jump = true
 
 export(String) var type = "Jump"
 

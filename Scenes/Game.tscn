@@ -1,31 +1,33 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scripts/Game.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Crate.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Character.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Assets/Up.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Up Pressed.png" type="Texture" id=5]
-[ext_resource path="res://Assets/Down.png" type="Texture" id=6]
-[ext_resource path="res://Assets/Down Pressed.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Left.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Left Pressed.png" type="Texture" id=9]
-[ext_resource path="res://Assets/Right.png" type="Texture" id=10]
-[ext_resource path="res://Assets/Right Pressed.png" type="Texture" id=11]
-[ext_resource path="res://Assets/Three.png" type="Texture" id=12]
-[ext_resource path="res://Scripts/Health.gd" type="Script" id=13]
-[ext_resource path="res://Assets/Attack.png" type="Texture" id=14]
-[ext_resource path="res://Assets/Attack Pressed.png" type="Texture" id=15]
-[ext_resource path="res://Assets/Blank.png" type="Texture" id=16]
-[ext_resource path="res://Assets/Game Over.png" type="Texture" id=17]
-[ext_resource path="res://Assets/Game Over Pressed.png" type="Texture" id=18]
-[ext_resource path="res://Assets/Winner A.png" type="Texture" id=19]
+[ext_resource path="res://Scenes/Item.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Character.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Up.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Up Pressed.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Down.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Down Pressed.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Left.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Left Pressed.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Right.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Right Pressed.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Three.png" type="Texture" id=13]
+[ext_resource path="res://Scripts/Health.gd" type="Script" id=14]
+[ext_resource path="res://Assets/Attack.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Attack Pressed.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Blank.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Game Over.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Game Over Pressed.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Winner A.png" type="Texture" id=20]
 
-[node name="Game" type="Node2D" index="0"]
+[node name="Game" type="Node2D"]
 
 script = ExtResource( 1 )
 
 [node name="Map" type="Node2D" parent="." index="0"]
 
+editor/display_folded = true
 _sections_unfolded = [ "Transform" ]
 
 [node name="Crate" parent="Map" index="0" instance=ExtResource( 2 )]
@@ -46,13 +48,53 @@ position = Vector2( 139, 16 )
 _sections_unfolded = [ "Transform" ]
 type = "Random"
 
+[node name="Obstacle" parent="Map" index="3" instance=ExtResource( 3 )]
+
+[node name="Obstacle13" parent="Map" index="4" instance=ExtResource( 3 )]
+
+[node name="Obstacle2" parent="Map" index="5" instance=ExtResource( 3 )]
+
+[node name="Obstacle19" parent="Map" index="6" instance=ExtResource( 3 )]
+
+[node name="Obstacle3" parent="Map" index="7" instance=ExtResource( 3 )]
+
+[node name="Obstacle16" parent="Map" index="8" instance=ExtResource( 3 )]
+
+[node name="Obstacle4" parent="Map" index="9" instance=ExtResource( 3 )]
+
+[node name="Obstacle14" parent="Map" index="10" instance=ExtResource( 3 )]
+
+[node name="Obstacle5" parent="Map" index="11" instance=ExtResource( 3 )]
+
+[node name="Obstacle18" parent="Map" index="12" instance=ExtResource( 3 )]
+
+[node name="Obstacle6" parent="Map" index="13" instance=ExtResource( 3 )]
+
+[node name="Obstacle11" parent="Map" index="14" instance=ExtResource( 3 )]
+
+[node name="Obstacle7" parent="Map" index="15" instance=ExtResource( 3 )]
+
+[node name="Obstacle15" parent="Map" index="16" instance=ExtResource( 3 )]
+
+[node name="Obstacle8" parent="Map" index="17" instance=ExtResource( 3 )]
+
+[node name="Obstacle17" parent="Map" index="18" instance=ExtResource( 3 )]
+
+[node name="Obstacle9" parent="Map" index="19" instance=ExtResource( 3 )]
+
+[node name="Obstacle12" parent="Map" index="20" instance=ExtResource( 3 )]
+
+[node name="Obstacle10" parent="Map" index="21" instance=ExtResource( 3 )]
+
+[node name="Obstacle20" parent="Map" index="22" instance=ExtResource( 3 )]
+
 [node name="Characters" type="Node2D" parent="." index="1"]
 
-[node name="Character A" parent="Characters" index="0" instance=ExtResource( 3 )]
+[node name="Character A" parent="Characters" index="0" instance=ExtResource( 4 )]
 
 test = false
 
-[node name="Character B" parent="Characters" index="1" instance=ExtResource( 3 )]
+[node name="Character B" parent="Characters" index="1" instance=ExtResource( 4 )]
 
 position = Vector2( 224, 0 )
 test = false
@@ -149,10 +191,10 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 4 )
-texture_pressed = ExtResource( 5 )
-texture_hover = ExtResource( 5 )
-texture_disabled = ExtResource( 5 )
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 6 )
+texture_disabled = ExtResource( 6 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
 [node name="Down" type="TextureButton" parent="Controls/Player A" index="2"]
@@ -176,10 +218,10 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 6 )
-texture_pressed = ExtResource( 7 )
-texture_hover = ExtResource( 7 )
-texture_disabled = ExtResource( 7 )
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 8 )
+texture_hover = ExtResource( 8 )
+texture_disabled = ExtResource( 8 )
 _sections_unfolded = [ "Anchor", "Rect", "Textures" ]
 
 [node name="Left" type="TextureButton" parent="Controls/Player A" index="3"]
@@ -202,10 +244,10 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 8 )
-texture_pressed = ExtResource( 9 )
-texture_hover = ExtResource( 9 )
-texture_disabled = ExtResource( 9 )
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 10 )
+texture_hover = ExtResource( 10 )
+texture_disabled = ExtResource( 10 )
 _sections_unfolded = [ "Anchor", "Rect", "Textures" ]
 
 [node name="Right" type="TextureButton" parent="Controls/Player A" index="4"]
@@ -229,17 +271,17 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 10 )
-texture_pressed = ExtResource( 11 )
-texture_hover = ExtResource( 11 )
-texture_disabled = ExtResource( 11 )
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 12 )
+texture_hover = ExtResource( 12 )
+texture_disabled = ExtResource( 12 )
 _sections_unfolded = [ "Anchor", "Rect", "Textures" ]
 
 [node name="Health" type="Sprite" parent="Controls/Player A" index="5"]
 
 position = Vector2( 8, 120 )
-texture = ExtResource( 12 )
-script = ExtResource( 13 )
+texture = ExtResource( 13 )
+script = ExtResource( 14 )
 
 [node name="Attack" type="TextureButton" parent="Controls/Player A" index="6"]
 
@@ -262,16 +304,16 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 14 )
-texture_pressed = ExtResource( 15 )
-texture_hover = ExtResource( 15 )
-texture_disabled = ExtResource( 15 )
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 16 )
+texture_hover = ExtResource( 16 )
+texture_disabled = ExtResource( 16 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
 [node name="Powerup" type="Sprite" parent="Controls/Player A" index="7"]
 
 position = Vector2( 56, 136 )
-texture = ExtResource( 16 )
+texture = ExtResource( 17 )
 
 [node name="Player B" type="Control" parent="Controls" index="2"]
 
@@ -331,10 +373,10 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 4 )
-texture_pressed = ExtResource( 5 )
-texture_hover = ExtResource( 5 )
-texture_disabled = ExtResource( 5 )
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 6 )
+texture_disabled = ExtResource( 6 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
 [node name="Down" type="TextureButton" parent="Controls/Player B" index="2"]
@@ -358,10 +400,10 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 6 )
-texture_pressed = ExtResource( 7 )
-texture_hover = ExtResource( 7 )
-texture_disabled = ExtResource( 7 )
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 8 )
+texture_hover = ExtResource( 8 )
+texture_disabled = ExtResource( 8 )
 _sections_unfolded = [ "Anchor", "Rect", "Textures" ]
 
 [node name="Left" type="TextureButton" parent="Controls/Player B" index="3"]
@@ -384,10 +426,10 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 8 )
-texture_pressed = ExtResource( 9 )
-texture_hover = ExtResource( 9 )
-texture_disabled = ExtResource( 9 )
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 10 )
+texture_hover = ExtResource( 10 )
+texture_disabled = ExtResource( 10 )
 _sections_unfolded = [ "Anchor", "Rect", "Textures" ]
 
 [node name="Right" type="TextureButton" parent="Controls/Player B" index="4"]
@@ -411,17 +453,17 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 10 )
-texture_pressed = ExtResource( 11 )
-texture_hover = ExtResource( 11 )
-texture_disabled = ExtResource( 11 )
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 12 )
+texture_hover = ExtResource( 12 )
+texture_disabled = ExtResource( 12 )
 _sections_unfolded = [ "Anchor", "Rect", "Textures" ]
 
 [node name="Health" type="Sprite" parent="Controls/Player B" index="5"]
 
 position = Vector2( 40, 120 )
-texture = ExtResource( 12 )
-script = ExtResource( 13 )
+texture = ExtResource( 13 )
+script = ExtResource( 14 )
 
 [node name="Attack" type="TextureButton" parent="Controls/Player B" index="6"]
 
@@ -444,16 +486,16 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 14 )
-texture_pressed = ExtResource( 15 )
-texture_hover = ExtResource( 15 )
-texture_disabled = ExtResource( 15 )
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 16 )
+texture_hover = ExtResource( 16 )
+texture_disabled = ExtResource( 16 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
 [node name="Powerup" type="Sprite" parent="Controls/Player B" index="7"]
 
 position = Vector2( -8, 136 )
-texture = ExtResource( 16 )
+texture = ExtResource( 17 )
 
 [node name="Game Over" type="TextureButton" parent="Controls" index="3"]
 
@@ -478,17 +520,17 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 17 )
-texture_pressed = ExtResource( 18 )
-texture_hover = ExtResource( 18 )
-texture_disabled = ExtResource( 18 )
+texture_normal = ExtResource( 18 )
+texture_pressed = ExtResource( 19 )
+texture_hover = ExtResource( 19 )
+texture_disabled = ExtResource( 19 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
 [node name="Winner" type="Sprite" parent="Controls" index="4"]
 
 visible = false
 position = Vector2( 120, 72 )
-texture = ExtResource( 19 )
+texture = ExtResource( 20 )
 _sections_unfolded = [ "Transform" ]
 
 [connection signal="pressed" from="Controls/Player A/Up" to="Characters/Character A" method="move_up"]

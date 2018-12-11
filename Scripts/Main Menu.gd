@@ -5,7 +5,10 @@ func lar(path):
 	queue_free()
 
 func _ready():
-	pass
+	set_process(false)
 
 func _on_Play_pressed():
 	lar("res://Scenes/Play.tscn")
+
+func _on_Play_4_pressed():
+	lar("res://Scenes/Four Player Game.tscn")
