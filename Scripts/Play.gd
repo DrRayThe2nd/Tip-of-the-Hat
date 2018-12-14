@@ -12,5 +12,5 @@ func _on_Back_pressed():
 
 func _on_Play_pressed():
 	$"..".add_child(load("res://Scenes/Game.tscn").instance())
-	$"../Game".update_characters(ca, cb)
+	$"../Game".update_characters(ca, cb, null, null)
 	queue_free()

@@ -11,4 +11,4 @@ func _on_Play_pressed():
 	lar("res://Scenes/Play.tscn")
 
 func _on_Play_4_pressed():
-	lar("res://Scenes/Four Player Game.tscn")
+	lar("res://Scenes/Play Four.tscn")

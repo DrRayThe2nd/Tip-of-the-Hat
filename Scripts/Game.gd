@@ -9,10 +9,6 @@ var add
 var pos
 var obstacles = []
 var players = 2
-var ca
-var cb
-var cc
-var cd
 var plrs
 
 onready var p1 = $"Characters/Character A"
@@ -25,18 +21,18 @@ onready var c1 = $Map/Crate
 onready var c2 = $Map/Crate2
 onready var c3 = $Map/Crate3
 
-func update_characters(ca, cb):
+func update_characters(ca, cb, cc, cd):
 	p1.sprite_name = ca
 	p2.sprite_name = cb
 	
-	if players == 4:
+	if cc != null and cd != null:
 		p3.sprite_name = cc
 		p4.sprite_name = cd
 	
 	p1.set_sprite()
 	p2.set_sprite()
 	
-	if players == 4:
+	if cc != null and cd != null:
 		p3.set_sprite()
 		p4.set_sprite()
 	
@@ -94,6 +90,7 @@ func _process(delta):
 				print(" Game over! ")
 				print("-==========-")
 				set_process(false)
+				$Controls.set_process(false)
 				
 				for child in $Controls.get_children():
 					child.hide()

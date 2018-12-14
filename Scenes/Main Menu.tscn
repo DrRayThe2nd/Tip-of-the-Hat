@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Main Menu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Left.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Left Pressed.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Play.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Play Pressed.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Two Players.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Two Players Pressed.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Four Players.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Four Players Pressed.png" type="Texture" id=7]
 
 [node name="Main Menu" type="Node2D"]
 
@@ -100,83 +102,11 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 4 )
-texture_pressed = ExtResource( 5 )
-texture_hover = ExtResource( 5 )
-texture_disabled = ExtResource( 5 )
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 7 )
+texture_disabled = ExtResource( 7 )
 _sections_unfolded = [ "Anchor", "Margin", "Rect", "Textures" ]
-
-[node name="ColorRect" type="ColorRect" parent="UI/Play 4" index="0"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 2.0
-margin_bottom = 2.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-color = Color( 1, 0.585938, 0, 1 )
-_sections_unfolded = [ "Rect" ]
-
-[node name="ColorRect2" type="ColorRect" parent="UI/Play 4" index="1"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 30.0
-margin_right = 32.0
-margin_bottom = 2.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-color = Color( 1, 0.585938, 0, 1 )
-_sections_unfolded = [ "Rect" ]
-
-[node name="ColorRect3" type="ColorRect" parent="UI/Play 4" index="2"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 30.0
-margin_top = 14.0
-margin_right = 32.0
-margin_bottom = 16.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-color = Color( 1, 0.585938, 0, 1 )
-_sections_unfolded = [ "Rect" ]
-
-[node name="ColorRect4" type="ColorRect" parent="UI/Play 4" index="3"]
-
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 14.0
-margin_right = 2.0
-margin_bottom = 16.0
-rect_pivot_offset = Vector2( 0, 0 )
-rect_clip_content = false
-mouse_filter = 0
-mouse_default_cursor_shape = 0
-size_flags_horizontal = 1
-size_flags_vertical = 1
-color = Color( 1, 0.585938, 0, 1 )
-_sections_unfolded = [ "Rect" ]
 
 [connection signal="pressed" from="UI/Play" to="." method="_on_Play_pressed"]
 

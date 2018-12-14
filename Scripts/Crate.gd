@@ -13,8 +13,12 @@ func _ready():
 func take_crate(player):
 	if player == 1:
 		plr = $"../../Characters/Character A"
-	else:
+	elif player == 2:
 		plr = $"../../Characters/Character B"
+	elif player == 3:
+		plr = $"../../Characters/Character C"
+	elif player == 4:
+		plr = $"../../Characters/Character D"
 	
 	plr.has_powerup = true
 	if type == "Random":

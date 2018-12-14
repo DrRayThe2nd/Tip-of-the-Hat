@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/TNT.gd" type="Script" id=1]
+[ext_resource path="res://Assets/TNT.png" type="Texture" id=2]
+
+[node name="TNT" type="Node2D"]
+
+script = ExtResource( 1 )
+active = false
+rng = 1
+turns = 2
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+position = Vector2( 8, 8 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+

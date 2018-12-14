@@ -15,34 +15,35 @@ var plr
 
 func _ready():
 	if $"..".name.ends_with("A") and $"../../..".players == 2:
-		plr = get_parent().get_parent().get_parent().get_node("Characters/Character A")
+		plr = weakref(get_parent().get_parent().get_parent().get_node("Characters/Character A"))
 	elif $"..".name.ends_with("B") and $"../../..".players == 2:
-		plr = get_parent().get_parent().get_parent().get_node("Characters/Character B")
+		plr = weakref(get_parent().get_parent().get_parent().get_node("Characters/Character B"))
 	else:
 		plr = get_parent().get_parent().get_parent().get_node("Characters/Character A")
 	
 	set_process(true)
 
 func _process(delta):
-	if plr.powerup == "Medkit":
-		if plr.health == 1:
-			texture = zero_plus
-		elif plr.health == 2:
-			texture = one_plus
-		elif plr.health == 3:
-			texture = two_plus
-		elif plr.health == 4:
-			texture = three_plus
+	if plr.get_ref():
+		if plr.get_ref().powerup == "Medkit":
+			if plr.get_ref().health == 1:
+				texture = zero_plus
+			elif plr.get_ref().health == 2:
+				texture = one_plus
+			elif plr.get_ref().health == 3:
+				texture = two_plus
+			elif plr.get_ref().health == 4:
+				texture = three_plus
+			else:
+				texture = four_plus
 		else:
-			texture = four_plus
-	else:
-		if plr.health == 0:
-			texture = zero
-		elif plr.health == 1:
-			texture = one
-		elif plr.health == 2:
-			texture = two
-		elif plr.health == 3:
-			texture = three
-		else:
-			texture = four
+			if plr.get_ref().health == 0:
+				texture = zero
+			elif plr.get_ref().health == 1:
+				texture = one
+			elif plr.get_ref().health == 2:
+				texture = two
+			elif plr.get_ref().health == 3:
+				texture = three
+			else:
+				texture = four

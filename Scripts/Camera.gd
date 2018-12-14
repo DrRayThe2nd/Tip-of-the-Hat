@@ -13,6 +13,9 @@ onready var attack = $"All Controls/Attack"
 var timer
 
 func timeout():
+	# Error here:
+	# No member "position" on object "previously freed instace
+	# Caused by death of the next player in line
 	position = Vector2(clamp(current_player.position.x - 120 + 8, 0, 240), clamp(current_player.position.y - 72 + 24, 0, 144 - 32))
 
 func _ready():
@@ -25,6 +28,8 @@ func _ready():
 	set_process(true)
 
 func _process(delta):
+	plrs = root.get_node("Characters").get_children() # Needed again for player death
+	
 	for plr in plrs:
 		if plr.turn:
 			current_player = plr

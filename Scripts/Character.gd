@@ -19,11 +19,19 @@ var turn = false
 var plr
 var plrs = []
 var last_powerup
+var rng = 1
 var temp
 var pnum
 var checks = []
 var players = 2
 var names = ["Joe", "Zombie", "Blue Sheep", "Pink Sheep", "White Horse", "Zombie Horse", "Black Widow", "Brown Recluse"]
+
+func has_child(node, name):
+	for child in node.get_children():
+		if child.name == name:
+			return true
+	
+	return false
 
 func update_turns():
 	turn = false
@@ -39,6 +47,9 @@ func update_turns():
 			plrs[3].turn = true
 		else:
 			plrs[0].turn = true
+	
+	if has_child($"../../Map", "TNT"):
+		$"../../Map/TNT".turns -= 1
 
 func set_sprite():
 	if sprite_name != "Random":
@@ -47,10 +58,11 @@ func set_sprite():
 		randomize()
 		sprite_name = AL.choose(names)
 		sprite_path = "res://Assets/" + sprite_name + ".png"
-		if sprite_name in AL.HEALTH:
-			health += 1
-		elif sprite_name in AL.ATTACKERS:
-			damage += 1
+	
+	if sprite_name in AL.HEALTH and players == 4:
+		health += 1
+	elif sprite_name in AL.ATTACKERS and players == 4 and sprite_name != "Zombie Horse":
+		damage += 1
 	get_node("Sprite").texture = load(sprite_path)
 	if sprite_name in AL.JUMPERS:
 		can_jump = true
@@ -79,22 +91,30 @@ func update_powerup():
 			can_jump = true
 			if last_powerup == "Medkit":
 				health -= 1
-			elif not sprite_name in AL.ATTACKERS:
+			elif not sprite_name in AL.ATTACKERS or sprite_name == "Zombie Horse":
 				damage -= 1
 		elif powerup == "Medkit":
 			pwr.texture = load("res://Assets/Medkit.png")
 			health += 1
 			if last_powerup == "Jump" and not sprite_name in AL.JUMPERS:
 				can_jump = false
-			elif not sprite_name in AL.ATTACKERS:
+			elif not sprite_name in AL.ATTACKERS or sprite_name == "Zombie Horse":
 				damage -= 1
-		else:
+		elif powerup == "Sword":
 			pwr.texture = load("res://Assets/Sword.png")
 			damage += 1
 			if last_powerup == "Medkit":
 				health -= 1
 			elif not sprite_name in AL.JUMPERS:
 				can_jump = false
+		elif powerup == "TNT":
+			pwr.texture = load("res://Assets/TNT.png")
+			if last_powerup == "Medkit":
+				health -= 1
+			elif not sprite_name in AL.JUMPERS:
+				can_jump = false
+			elif not sprite_name in AL.ATTACKERS or sprite_name == "Zombie Horse":
+				damage -= 1
 		last_powerup = powerup
 
 func _ready():
@@ -106,8 +126,6 @@ func _ready():
 		pnum = 3
 	elif name.ends_with("D"):
 		pnum = 4
-	
-	set_sprite()
 	
 	if name.ends_with("A"):
 		plr = get_node("../Character B")
@@ -152,9 +170,16 @@ func move_up():
 		
 		check = check_pos(new_pos)
 		
+		checks = []
+		for vec in [vectors[1] + position, vectors[3] + position, vectors[5] + position, vectors[7] + position]:
+			checks.append(check_pos(vec))
+		if not true in checks:
+			check = true
+		
 		if check or not check_pos(position):
-			position = new_pos
-			update_turns()
+			if turn:
+				position = new_pos
+				update_turns()
 		
 		return check
 
@@ -172,8 +197,9 @@ func move_down():
 			check = true
 		
 		if check or not check_pos(position):
-			position = new_pos
-			update_turns()
+			if turn:
+				position = new_pos
+				update_turns()
 		
 		return check
 
@@ -184,9 +210,16 @@ func move_left():
 		
 		check = check_pos(new_pos)
 		
+		checks = []
+		for vec in [vectors[1] + position, vectors[3] + position, vectors[5] + position, vectors[7] + position]:
+			checks.append(check_pos(vec))
+		if not true in checks:
+			check = true
+		
 		if check or not check_pos(position):
-			position = new_pos
-			update_turns()
+			if turn:
+				position = new_pos
+				update_turns()
 		
 		return check
 
@@ -197,15 +230,34 @@ func move_right():
 		
 		check = check_pos(new_pos)
 		
+		checks = []
+		for vec in [vectors[1] + position, vectors[3] + position, vectors[5] + position, vectors[7] + position]:
+			checks.append(check_pos(vec))
+		if not true in checks:
+			check = true
+		
 		if check or not check_pos(position):
-			position = new_pos
-			update_turns()
+			if turn:
+				position = new_pos
+				update_turns()
 		
 		return check
 
 func attack():
 	if turn or players == 2:
+#		if powerup == "TNT":
+#			$"../../Map".add_child(load("res://Scenes/TNT.tscn").instance())
+#			$"../../Map/TNT".active = true
+#			$"../../Map/TNT".player = self
+#			$"../../Map/TNT".rng = rng
+#			$"../../Map/TNT".position = position
 		for vec in vectors:
+			for child in get_parent().get_children():
+				if position + vec == child.position and child != self and turn:
+					child.attacked(powerup, damage)
+					
+					update_turns()
+			
 			for child in $"../../Map".get_children():
 				if position + vec == child.position and child.is_powerup and turn:
 					if name.ends_with("A"):
@@ -219,15 +271,9 @@ func attack():
 					update_powerup()
 					
 					update_turns()
-			
-			for child in get_parent().get_children():
-				if position + vec == child.position and child != self and turn:
-					child.attacked(powerup, damage)
-					
-					update_turns()
 
 func attacked(p, d):
-	if powerup == "Medkit":
+	if powerup == "Mdedkit":
 		has_powerup = false
 		powerup = null
 	
