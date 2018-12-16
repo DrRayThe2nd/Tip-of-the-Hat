@@ -12,3 +12,6 @@ func _on_Play_pressed():
 
 func _on_Play_4_pressed():
 	lar("res://Scenes/Play Four.tscn")
+
+func _on_Shop_pressed():
+	lar("res://Scenes/Shop.tscn")

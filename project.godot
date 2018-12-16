@@ -17,6 +17,7 @@ config/icon="res://Assets/Large Title.png"
 [autoload]
 
 AL="*res://Scripts/Auto Load.gd"
+COM="*res://Scripts/Multiplayer.gd"
 
 [display]
 

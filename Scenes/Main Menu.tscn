@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/Main Menu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Left.png" type="Texture" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://Assets/Two Players Pressed.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Four Players.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Four Players Pressed.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Game Over.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Game Over Pressed.png" type="Texture" id=9]
 
 [node name="Main Menu" type="Node2D"]
 
@@ -108,8 +110,37 @@ texture_hover = ExtResource( 7 )
 texture_disabled = ExtResource( 7 )
 _sections_unfolded = [ "Anchor", "Margin", "Rect", "Textures" ]
 
+[node name="Shop" type="TextureButton" parent="UI" index="3"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 104.0
+margin_top = 96.0
+margin_right = 136.0
+margin_bottom = 112.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = false
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 9 )
+texture_hover = ExtResource( 9 )
+texture_disabled = ExtResource( 9 )
+_sections_unfolded = [ "Anchor", "Margin", "Rect", "Textures" ]
+
 [connection signal="pressed" from="UI/Play" to="." method="_on_Play_pressed"]
 
 [connection signal="pressed" from="UI/Play 4" to="." method="_on_Play_4_pressed"]
+
+[connection signal="pressed" from="UI/Shop" to="." method="_on_Shop_pressed"]
 
 

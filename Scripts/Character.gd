@@ -39,14 +39,38 @@ func update_turns():
 	if players == 2:
 		plr.turn = true
 	elif players == 4:
+		for p in plrs:
+			print(p)
+		print(" ")
+		
 		if name.ends_with("A"):
-			plrs[1].turn = true
+			if str(plrs[1]) != "[Deleted Object]":
+				plrs[1].turn = true
+			elif str(plrs[2]) != "[Deleted Object]":
+				plrs[2].turn = true
+			elif str(plrs[3]) != "[Deleted Object]":
+				plrs[3].turn = true
 		elif name.ends_with("B"):
-			plrs[2].turn = true
+			if str(plrs[2]) != "[Deleted Object]":
+				plrs[2].turn = true
+			elif str(plrs[3]) != "[Deleted Object]":
+				plrs[3].turn = true
+			elif str(plrs[0]) != "[Deleted Object]":
+				plrs[0].turn = true
 		elif name.ends_with("C"):
-			plrs[3].turn = true
-		else:
-			plrs[0].turn = true
+			if str(plrs[3]) != "[Deleted Object]":
+				plrs[3].turn = true
+			elif str(plrs[0]) != "[Deleted Object]":
+				plrs[0].turn = true
+			elif str(plrs[1]) != "[Deleted Object]":
+				plrs[1].turn = true
+		elif name.ends_with("D"):
+			if str(plrs[0]) != "[Deleted Object]":
+				plrs[0].turn = true
+			elif str(plrs[1]) != "[Deleted Object]":
+				plrs[1].turn = true
+			elif str(plrs[2]) != "[Deleted Object]":
+				plrs[2].turn = true
 	
 	if has_child($"../../Map", "TNT"):
 		$"../../Map/TNT".turns -= 1
@@ -178,8 +202,10 @@ func move_up():
 		
 		if check or not check_pos(position):
 			if turn:
-				position = new_pos
-				update_turns()
+				position = Vector2(clamp(new_pos.x, 0, AL.FAR_CORNER.x), clamp(new_pos.y, 0, AL.FAR_CORNER.y))
+				if position == new_pos:
+				# Check to see if clamp changed the position or not
+					update_turns()
 		
 		return check
 
@@ -198,8 +224,10 @@ func move_down():
 		
 		if check or not check_pos(position):
 			if turn:
-				position = new_pos
-				update_turns()
+				position = Vector2(clamp(new_pos.x, 0, AL.FAR_CORNER.x), clamp(new_pos.y, 0, AL.FAR_CORNER.y))
+				if position == new_pos:
+				# Check to see if clamp changed the position or not
+					update_turns()
 		
 		return check
 
@@ -218,8 +246,10 @@ func move_left():
 		
 		if check or not check_pos(position):
 			if turn:
-				position = new_pos
-				update_turns()
+				position = Vector2(clamp(new_pos.x, 0, AL.FAR_CORNER.x), clamp(new_pos.y, 0, AL.FAR_CORNER.y))
+				if position == new_pos:
+				# Check to see if clamp changed the position or not
+					update_turns()
 		
 		return check
 
@@ -238,8 +268,10 @@ func move_right():
 		
 		if check or not check_pos(position):
 			if turn:
-				position = new_pos
-				update_turns()
+				position = Vector2(clamp(new_pos.x, 0, AL.FAR_CORNER.x), clamp(new_pos.y, 0, AL.FAR_CORNER.y))
+				if position == new_pos:
+				# Check to see if clamp changed the position or not
+					update_turns()
 		
 		return check
 
@@ -257,6 +289,17 @@ func attack():
 					child.attacked(powerup, damage)
 					
 					update_turns()
+				elif sprite_name in AL.RANGE:
+					for vec2 in AL.VECTORS2:
+						if position + vec2 == child.position and child != self and turn:
+							randomize()
+							
+							if randi() % 2:
+								child.attacked(powerup, damage)
+							elif powerup == "Sword":
+								child.attacked(powerup, 1)
+							
+							update_turns()
 			
 			for child in $"../../Map".get_children():
 				if position + vec == child.position and child.is_powerup and turn:
@@ -273,7 +316,7 @@ func attack():
 					update_turns()
 
 func attacked(p, d):
-	if powerup == "Mdedkit":
+	if powerup == "Medkit":
 		has_powerup = false
 		powerup = null
 	

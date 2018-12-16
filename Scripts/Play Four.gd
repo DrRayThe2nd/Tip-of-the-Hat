@@ -18,8 +18,6 @@ func _on_Play_pressed():
 	$"UI/Character Options".des("Joe")
 	
 	if selecting > 4:
-		# Something doesn't work here!
-		# Please fix!
 		$"..".add_child(load("res://Scenes/Four Player Game.tscn").instance())
 		$"../Four Player Game".update_characters(ca, cb, cc, cd)
 		queue_free()

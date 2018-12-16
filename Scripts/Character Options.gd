@@ -40,3 +40,6 @@ func _on_Brown_Recluse_pressed():
 
 func _on_Black_Widow_pressed():
 	des("Black Widow")
+
+func _on_Skunk_pressed():
+	des("Skunk")

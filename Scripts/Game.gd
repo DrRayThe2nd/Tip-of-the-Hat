@@ -57,7 +57,7 @@ func _ready():
 	
 	if name.begins_with("Four"):
 		players = 4
-		AL.FAR_CORNER = Vector2(AL.FAR_CORNER.x * 2, AL.FAR_CORNER.y * 2)
+		AL.FAR_CORNER = Vector2((AL.FAR_CORNER.x - 8) * 2, AL.FAR_CORNER.y * 2)
 		for p in plrs:
 			p.players = 4
 			p._ready()
@@ -105,8 +105,10 @@ func _process(delta):
 					winner.texture = win_d
 				
 				winner.show()
-				game_over.show()
-				game_over.disabled = false
+				game_over.texture_normal = load("res://Assets/Game Over.png")
+				game_over.texture_hover = load("res://Assets/Game Over Pressed.png")
+				game_over.texture_pressed = load("res://Assets/Game Over Pressed.png")
+				game_over.rect_position.x -= 8
 
 func end_game():
 	get_parent().add_child(load("res://Scenes/Main Menu.tscn").instance())
