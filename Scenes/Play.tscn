@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Scripts/Play.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Choose a Character.png" type="Texture" id=2]
@@ -22,6 +22,8 @@
 [ext_resource path="res://Assets/Brown Recluse Pressed.png" type="Texture" id=20]
 [ext_resource path="res://Assets/Black Widow.png" type="Texture" id=21]
 [ext_resource path="res://Assets/Black Widow Pressed.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Skunk.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Skunk Pressed.png" type="Texture" id=24]
 
 [node name="Play" type="Node2D"]
 
@@ -346,6 +348,33 @@ texture_hover = ExtResource( 22 )
 texture_disabled = ExtResource( 22 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
+[node name="Skunk" type="TextureButton" parent="UI/Character Options" index="8"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 16.0
+margin_top = 96.0
+margin_right = 32.0
+margin_bottom = 112.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 23 )
+texture_pressed = ExtResource( 24 )
+texture_hover = ExtResource( 24 )
+texture_disabled = ExtResource( 24 )
+_sections_unfolded = [ "Rect", "Textures" ]
+
 [node name="Character Options2" type="Control" parent="UI" index="3"]
 
 anchor_left = 0.0
@@ -591,6 +620,33 @@ texture_hover = ExtResource( 22 )
 texture_disabled = ExtResource( 22 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
+[node name="Skunk" type="TextureButton" parent="UI/Character Options2" index="8"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 16.0
+margin_top = 96.0
+margin_right = 32.0
+margin_bottom = 112.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+toggle_mode = true
+enabled_focus_mode = 2
+shortcut = null
+group = null
+texture_normal = ExtResource( 23 )
+texture_pressed = ExtResource( 24 )
+texture_hover = ExtResource( 24 )
+texture_disabled = ExtResource( 24 )
+_sections_unfolded = [ "Rect", "Textures" ]
+
 [connection signal="pressed" from="UI/Back" to="." method="_on_Back_pressed"]
 
 [connection signal="pressed" from="UI/Play" to="." method="_on_Play_pressed"]
@@ -611,6 +667,8 @@ _sections_unfolded = [ "Rect", "Textures" ]
 
 [connection signal="pressed" from="UI/Character Options/Black Widow" to="UI/Character Options" method="_on_Black_Widow_pressed"]
 
+[connection signal="pressed" from="UI/Character Options/Skunk" to="UI/Character Options" method="_on_Skunk_pressed"]
+
 [connection signal="pressed" from="UI/Character Options2/Joe" to="UI/Character Options2" method="_on_Joe_pressed"]
 
 [connection signal="pressed" from="UI/Character Options2/Zombie" to="UI/Character Options2" method="_on_Zombie_pressed"]
@@ -626,5 +684,7 @@ _sections_unfolded = [ "Rect", "Textures" ]
 [connection signal="pressed" from="UI/Character Options2/Brown Recluse" to="UI/Character Options2" method="_on_Brown_Recluse_pressed"]
 
 [connection signal="pressed" from="UI/Character Options2/Black Widow" to="UI/Character Options2" method="_on_Black_Widow_pressed"]
+
+[connection signal="pressed" from="UI/Character Options2/Skunk" to="UI/Character Options2" method="_on_Skunk_pressed"]
 
 

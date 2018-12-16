@@ -13,7 +13,7 @@ func des(keep):
 		root.cb = keep
 	elif root.selecting == 3:
 		root.cc = keep
-	else:
+	elif root.selecting == 4:
 		root.cd = keep
 
 func _ready():
@@ -42,3 +42,6 @@ func _on_Brown_Recluse_pressed():
 
 func _on_Black_Widow_pressed():
 	des("Black Widow")
+
+func _on_Skunk_pressed():
+	des("Skunk")
