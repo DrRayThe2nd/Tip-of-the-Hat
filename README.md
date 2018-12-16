@@ -1,5 +1,5 @@
-This is a game that will be know as Tip of the Hat.
+This is a game that will be know as Retro PvP.
 
 Currently in development.
 
-Version 'Doesn't work'
+Version beta v0.1.0
