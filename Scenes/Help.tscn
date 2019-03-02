@@ -4,7 +4,7 @@
 [ext_resource path="res://Assets/Left.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Left Pressed.png" type="Texture" id=3]
 
-[node name="Shop" type="Node2D"]
+[node name="Help" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 

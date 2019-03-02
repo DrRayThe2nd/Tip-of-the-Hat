@@ -7,8 +7,8 @@
 [ext_resource path="res://Assets/Two Players Pressed.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Four Players.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Four Players Pressed.png" type="Texture" id=7]
-[ext_resource path="res://Assets/Game Over.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Game Over Pressed.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Help.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Help Pressed.png" type="Texture" id=9]
 
 [node name="Main Menu" type="Node2D"]
 
@@ -35,10 +35,10 @@ anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_left = 7.0
-margin_top = 7.0
-margin_right = 23.0
-margin_bottom = 23.0
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 24.0
+margin_bottom = 24.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 focus_mode = 2
@@ -54,7 +54,7 @@ texture_normal = ExtResource( 2 )
 texture_pressed = ExtResource( 3 )
 texture_hover = ExtResource( 3 )
 texture_disabled = ExtResource( 3 )
-_sections_unfolded = [ "Margin", "Textures" ]
+_sections_unfolded = [ "Rect", "Textures" ]
 
 [node name="Play" type="TextureButton" parent="UI" index="1"]
 
@@ -110,7 +110,7 @@ texture_hover = ExtResource( 7 )
 texture_disabled = ExtResource( 7 )
 _sections_unfolded = [ "Anchor", "Margin", "Rect", "Textures" ]
 
-[node name="Shop" type="TextureButton" parent="UI" index="3"]
+[node name="Help" type="TextureButton" parent="UI" index="3"]
 
 anchor_left = 0.0
 anchor_top = 0.0
@@ -137,10 +137,12 @@ texture_hover = ExtResource( 9 )
 texture_disabled = ExtResource( 9 )
 _sections_unfolded = [ "Anchor", "Margin", "Rect", "Textures" ]
 
+[connection signal="pressed" from="UI/Back" to="." method="_on_Back_pressed"]
+
 [connection signal="pressed" from="UI/Play" to="." method="_on_Play_pressed"]
 
 [connection signal="pressed" from="UI/Play 4" to="." method="_on_Play_4_pressed"]
 
-[connection signal="pressed" from="UI/Shop" to="." method="_on_Shop_pressed"]
+[connection signal="pressed" from="UI/Help" to="." method="_on_Help_pressed"]
 
 

@@ -13,5 +13,8 @@ func _on_Play_pressed():
 func _on_Play_4_pressed():
 	lar("res://Scenes/Play Four.tscn")
 
-func _on_Shop_pressed():
-	lar("res://Scenes/Shop.tscn")
+func _on_Help_pressed():
+	lar("res://Scenes/Help.tscn")
+
+func _on_Back_pressed():
+	get_parent().queue_free()
