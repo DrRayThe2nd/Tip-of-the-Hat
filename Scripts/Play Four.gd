@@ -15,7 +15,7 @@ func _on_Back_pressed():
 
 func _on_Play_pressed():
 	selecting += 1
-	$"UI/Character Options".des("Joe")
+	$"UI/Character Options"._ready()
 	
 	if selecting > 4:
 		$"..".add_child(load("res://Scenes/Four Player Game.tscn").instance())

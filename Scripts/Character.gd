@@ -324,11 +324,11 @@ func attacked(p, d):
 	if players == 2:
 		if plr.sprite_name in AL.POISON:
 			randomize()
-			health -= randi() % 2
+			health -= randi() % 3
 	else:
 		for child in get_parent().get_children():
 			if child.turn and child.sprite_name in AL.POISON:
 				randomize()
-				health -= randi() % 2
+				health -= randi() % 3
 	
 	update_powerup()

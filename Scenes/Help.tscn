@@ -1,10 +1,23 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Shop.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Left.png" type="Texture" id=2]
 [ext_resource path="res://Assets/Left Pressed.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Fonts/homespun.ttf" type="DynamicFontData" id=4]
 
-[node name="Help" type="Node2D" index="0"]
+[sub_resource type="DynamicFont" id=1]
+
+size = 10
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 4 )
+_sections_unfolded = [ "Font" ]
+
+[sub_resource type="Theme" id=2]
+
+default_font = SubResource( 1 )
+
+[node name="Help" type="Node2D"]
 
 script = ExtResource( 1 )
 
@@ -35,6 +48,77 @@ texture_hover = ExtResource( 3 )
 texture_disabled = ExtResource( 3 )
 _sections_unfolded = [ "Rect", "Textures" ]
 
+[node name="Label" type="Label" parent="." index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 30.0
+margin_top = 24.0
+margin_right = 210.0
+margin_bottom = 320.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+theme = SubResource( 2 )
+text = "                Help
+
+        Basics
+
+In this game the goal is to eliminate all other opponents. You do this by pressing the button labeled 'Attack' when your desired target is within range of your character. To accomplish this, you must move your character. This is done by pressing the arrow which corresponds to your desired position. To assist you in your batle, there have been provided crates. In the game there are 3 crates in two player mode and 12 crates in four player mode. Crates give your character special abilities such as the ability to evade obstacles, have more health, or do more damage. On top of this, each character also has an ability that is always active. Read about these by selecting the desired character in the choosing menu or reading the abilities section. These are the basics of the game.
+
+        Powerups
+
+Currently there are 3 powerups: Jump, Sword, and Medkit. Jump allows your character to move over obstacles. Sword allows your character to do 1 more damage than they usually would. Medkit gives your character 1 more health. All powerups are obtained by pressing the attack button within range of a crate. Note that sometimes crates are underneath obstacles and that crates may sometimes stack.
+
+        Abilities
+
+Currently there are 5 abilities: Jump, Attack, Poison, Health, and Range. Jump allows your character to move over obstacles. Horse and Zombie Horse possess this ability. Attack allows your character to do 2 damage as opposed to 1. Joe and Zombie possess this ability. Characters with the ability Posion do 1-3 damage decided randomly each turn. Skunk possesses this ability. Health gives your character 4 health as opposed to 3. Both sheep possess this ability. Range allows your character to attack opponents whithin a range of 2. If powerup is sword, it will do 1 damage 100% of the time. Otherwise, it has a 50% chance of doing 1 damage. Skunk possesses this ability.
+
+        Two Player Mode
+
+In two player mode, two players share a screen. In this mode, you can see the entire field at any time. There are 3 crates in this mode. Note some may be hidden under obstacles.
+
+        Four Player Mode
+
+In four player mode, four players share a screen. In this mode, the field is 4x as large and you can only see 1/4 of the field at one time. The view changes based on who's turn it is. You can tell who's turn it is by the colored squares beside the character and beside the buttons. There are 12 crates in this mode. Note some may be hidden under obstacles."
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="VScrollBar" type="VScrollBar" parent="." index="2"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 216.0
+margin_top = 8.0
+margin_right = 232.0
+margin_bottom = 136.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 0
+size_flags_vertical = 1
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+page = 0.0
+value = 0.0
+exp_edit = false
+rounded = false
+custom_step = -1.0
+_sections_unfolded = [ "Rect" ]
+
 [connection signal="pressed" from="Back" to="." method="back"]
+
+[connection signal="scrolling" from="VScrollBar" to="." method="_on_VScrollBar_scrolling"]
 
 

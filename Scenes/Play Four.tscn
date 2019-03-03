@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Scripts/Play Four.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Choose a Character.png" type="Texture" id=2]
@@ -24,8 +24,21 @@
 [ext_resource path="res://Assets/Black Widow Pressed.png" type="Texture" id=22]
 [ext_resource path="res://Assets/Skunk.png" type="Texture" id=23]
 [ext_resource path="res://Assets/Skunk Pressed.png" type="Texture" id=24]
+[ext_resource path="res://Assets/Fonts/homespun.ttf" type="DynamicFontData" id=25]
 
-[node name="Play Four" type="Node2D"]
+[sub_resource type="DynamicFont" id=1]
+
+size = 10
+use_mipmaps = false
+use_filter = false
+font_data = ExtResource( 25 )
+_sections_unfolded = [ "Font" ]
+
+[sub_resource type="Theme" id=2]
+
+default_font = SubResource( 1 )
+
+[node name="Play Four" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 
@@ -235,6 +248,7 @@ _sections_unfolded = [ "Rect", "Textures" ]
 
 [node name="White Horse" type="TextureButton" parent="UI/Character Options" index="4"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -267,6 +281,7 @@ type = "White"
 
 [node name="Zombie Horse" type="TextureButton" parent="UI/Character Options" index="5"]
 
+editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -377,6 +392,27 @@ texture_pressed = ExtResource( 24 )
 texture_hover = ExtResource( 24 )
 texture_disabled = ExtResource( 24 )
 _sections_unfolded = [ "Rect", "Textures" ]
+
+[node name="Label" type="Label" parent="UI/Character Options" index="9"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 48.0
+margin_top = 32.0
+margin_right = 120.0
+margin_bottom = 112.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+theme = SubResource( 2 )
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
 
 [connection signal="pressed" from="UI/Back" to="." method="_on_Back_pressed"]
 
